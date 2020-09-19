@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import ReactImage from './react.png';
-import List from './components/List.js';
+import { BrowserRouter } from "react-router-dom";
+import ReactDOM from "react-dom";
+
+import Navbar from './components/Navbar';
+import Router from './components/Router';
 
 export default class App extends Component {
 
 
   render() {
     return (
-      <List />
+      <BrowserRouter>
+        <Navbar />
+        <Router />
+      </BrowserRouter>
     );
   }
 }
