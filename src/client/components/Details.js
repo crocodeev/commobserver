@@ -9,7 +9,7 @@ export default class Details extends Component {
 
     return(
         <div className="collapsible-body" style={{ display: this.props.shouldShow}} >
-
+          <h1>HERE COMES DETAILS</h1>
         </div>
     );
   }

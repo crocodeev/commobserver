@@ -7,8 +7,8 @@ export default class Navbar extends Component {
     render(){
         return(
             <nav className="nav-extended">
-                <div className="nav-wrapper red lighten-3">
-                <a href="#" className="brand-logo">START</a>
+                <div className="nav-wrapper grey lighten-3">
+                <a href="#" className="brand-logo grey-text text-darken-2">Commercial Observer</a>
                 </div>
                 <div className="nav-content">
                 <ul className="tabs tabs-transparent">
