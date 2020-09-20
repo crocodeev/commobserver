@@ -16,6 +16,7 @@ const connection = mysql.createConnection({
 
 router.get('/', (req, res) => {
 
+    const campaign_id = req.query.id;
 
     connection.connect( err => {
       if(err){
@@ -23,7 +24,7 @@ router.get('/', (req, res) => {
       }
     });
 
-    connection.query(queries.campaigns(mysqlSettings.project_id), (err, result) => {
+    connection.query(queries.channels(campaign_id), (err, result) => {
       if(err){
         return res.send(err);
       }else{
@@ -32,6 +33,7 @@ router.get('/', (req, res) => {
         })
       }
     });
+
 });
 
 module.exports = router;

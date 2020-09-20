@@ -30,6 +30,8 @@ export default class Active extends Component {
           { campaigns  ? campaigns.map(campaign => (
             <Campaign key={campaign.campaign_id}
              name={campaign.name}
+             block_size={campaign.block_size}
+             block_time={campaign.block_time}
              from_date={campaign.from_date}
              to_date={campaign.to_date}/>
           )) : null }

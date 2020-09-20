@@ -1,3 +1,8 @@
 module.exports = {
-  campaigns: "SELECT * FROM campaign WHERE project_id=61;"
+  campaigns: function (id) { 
+    return "SELECT * FROM campaign WHERE project_id=" + id + ";"
+  },
+  channels: function (id) {
+    return "SELECT * FROM campaign_channel WHERE campaign_id=" + id + ";"
+  }
 }
