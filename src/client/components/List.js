@@ -26,6 +26,7 @@ export default class List extends Component {
         <ul className="collapsible">
           { campaigns  ? campaigns.data.map(campaign => (
             <Campaign key={campaign.campaign_id}
+             campaign_id={campaign.campaign_id}
              name={campaign.name}
              from_date={campaign.from_date}
              to_date={campaign.to_date}/>
