@@ -4,6 +4,8 @@ const mysql = require('mysql');
 const queries = require('../config/queries');
 
 const mysqlSettings = require('../config/db.config.js');
+const { database } = require('../config/db.config.js');
+const { content } = require('../config/queries');
 
 const connection = mysql.createConnection({
   host: mysqlSettings.host,
@@ -18,6 +20,8 @@ router.get('/', (req, res) => {
 
     const campaign_id = req.query.id;
 
+    let data = {}
+
     connection.connect( err => {
       if(err){
         return err;
@@ -28,9 +32,16 @@ router.get('/', (req, res) => {
       if(err){
         return res.send(err);
       }else{
-        return res.json({
-          data:result
-        })
+        data.channels = result;
+
+        connection.query(queries.content(campaign_id), (err, result) => {
+          if(err){
+            return res.send(err);
+          }else{
+            data.content = result;
+            res.json(data); 
+          }
+        });
       }
     });
 
