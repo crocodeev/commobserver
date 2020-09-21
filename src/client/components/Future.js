@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import Campaign from './Campaign';
 
-export default class List extends Component {
+import filter from '../utils/filter';
+
+export default class Future extends Component {
 
   constructor() {
     super();
@@ -13,6 +15,7 @@ export default class List extends Component {
   componentDidMount() {
     fetch('/api/campaigns')
       .then(res => res.json())
+      .then(data => filter.getFuture(data))
       .then(data => this.setState({ campaigns: data }));
   }
 
@@ -24,10 +27,11 @@ export default class List extends Component {
       <div className="container">
         <div className="row">
         <ul className="collapsible">
-          { campaigns  ? campaigns.data.map(campaign => (
+          { campaigns  ? campaigns.map(campaign => (
             <Campaign key={campaign.campaign_id}
-             campaign_id={campaign.campaign_id}
              name={campaign.name}
+             block_size={campaign.block_size}
+             block_time={campaign.block_time}
              from_date={campaign.from_date}
              to_date={campaign.to_date}/>
           )) : null }
@@ -37,4 +41,3 @@ export default class List extends Component {
     );
   }
 }
-
