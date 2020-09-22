@@ -1,5 +1,5 @@
 module.exports = {
-  campaigns: function (id) { 
+  campaigns: function (id) {
     return "SELECT * FROM campaign WHERE project_id=" + id + ";"
   },
   channels: function (id) {
@@ -9,3 +9,14 @@ module.exports = {
     return `SELECT * FROM media WHERE media_id=( SELECT media_id FROM media_domain WHERE media_domain_id=(SELECT media_domain_id FROM playlist_media WHERE playlist_id=(SELECT playlist_id FROM playlist WHERE campaign_id=${id})));`
   }
 }
+
+/*
+need  SELECT
+ campaign
+ campaign_channel
+ channel
+ media_domainmedia
+ media
+ playlist_media
+ playlist
+*/

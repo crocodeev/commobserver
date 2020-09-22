@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
             return res.send(err);
           }else{
             data.content = result;
-            res.json(data); 
+            res.json(data);
           }
         });
       }
