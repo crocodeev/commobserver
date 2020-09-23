@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Detail from './Detail';
+import ExpandIcon from './ExpandIcon';
 import 'materialize-css/dist/css/materialize.min.css';
+import 'react-h5-audio-player/lib/styles.css'
 
 export default class Campaign extends Component {
 
@@ -21,7 +23,12 @@ export default class Campaign extends Component {
 
     fetch(`/api/details?id=${this.props.campaign_id}`)
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => this.setState(
+        {
+          channels: data.channels,
+          content: data.content[0]
+        }
+      ));
 
     this.setState(state => ({
       shouldShow: !state.shouldShow,
@@ -31,17 +38,26 @@ export default class Campaign extends Component {
   }
 
   render(){
+
     return(
       <li key={this.props.campaign_id} onClick={this.handleClick} >
-        <div className="collapsible-header grey lighten-2">
-          <div className="col s6">{this.props.name}</div>
+        <div className="collapsible-header grey lighten-3">
+          <div className="col s1">
+          <ExpandIcon shouldShow={this.state.shouldShow} />
+          </div>
+          <div className="col s6">
+          {this.props.name}
+          </div>
           <div className="col s2">{this.props.block_size + "/" + this.props.block_time + " min"}</div>
           <div className="col s2">{this.props.from_date.slice(0,10)}</div>
           <div className="col s2">{this.props.to_date.slice(0,10)}</div>
         </div>
        {
          this.state.isRender ?
-         <Detail shouldShow={this.state.shouldShow}/>
+         <Detail shouldShow={this.state.shouldShow}
+                 channels={this.state.channels}
+                 content={this.state.content}
+         />
          :
          null
        }

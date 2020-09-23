@@ -3,6 +3,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import Campaign from './Campaign';
 
 import filter from '../utils/filter';
+import isCommercial from '../utils/isCommercial';
 
 export default class Outofdate extends Component {
 
@@ -27,14 +28,20 @@ export default class Outofdate extends Component {
       <div className="container">
         <div className="row">
         <ul className="collapsible">
-          { campaigns  ? campaigns.map(campaign => (
-            <Campaign key={campaign.campaign_id}
-             name={campaign.name}
-             block_size={campaign.block_size}
-             block_time={campaign.block_time}
-             from_date={campaign.from_date}
-             to_date={campaign.to_date}/>
-          )) : null }
+        { campaigns  ? campaigns.map(campaign => {
+
+          if(isCommercial(campaign.block_time)){
+            return (
+              <Campaign key={campaign.campaign_id}
+               name={campaign.name}
+               campaign_id={campaign.campaign_id}
+               block_size={campaign.block_size}
+               block_time={campaign.block_time}
+               from_date={campaign.from_date}
+               to_date={campaign.to_date}/>
+            );
+          }
+        }) : null }
         </ul>
         </div>
       </div>

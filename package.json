@@ -24,6 +24,8 @@
     "path": "^0.12.7",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-h5-audio-player": "^3.4.1",
+    "react-inlinesvg": "^2.1.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
   },

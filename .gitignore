@@ -5,3 +5,4 @@ dist
 yarn.lock
 src/server/config/*.conf.js
 backups
+src/server/config/mediaRequest.js
