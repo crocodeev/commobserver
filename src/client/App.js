@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ReactDOM from "react-dom";
 
-import Navbar from './components/Navbar';
-import Router from './components/Router';
+import 'materialize-css/dist/css/materialize.min.css';
+
+import Landing from './components/Landing';
+import Dashboard from './components/Dashboard';
 
 export default class App extends Component {
 
@@ -11,8 +13,8 @@ export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Navbar />
-        <Router />
+        <Route exact path='/' component={Landing} />
+        <Route path='/dashboard' component={Dashboard} />
       </BrowserRouter>
     );
   }

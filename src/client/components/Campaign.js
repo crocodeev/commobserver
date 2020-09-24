@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Detail from './Detail';
 import ExpandIcon from './ExpandIcon';
-import 'materialize-css/dist/css/materialize.min.css';
 import 'react-h5-audio-player/lib/styles.css'
 
 export default class Campaign extends Component {

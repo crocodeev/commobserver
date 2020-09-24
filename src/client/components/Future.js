@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'materialize-css/dist/css/materialize.min.css';
 import Campaign from './Campaign';
 
 import filter from '../utils/filter';

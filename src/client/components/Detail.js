@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactAudioPlayer from 'react-h5-audio-player';
-import 'materialize-css/dist/css/materialize.min.css';
 import { mediaRequest } from '../../server/config/mediaRequest';
 
 export default class Detail extends Component {
