@@ -40,8 +40,8 @@ export default class Campaign extends Component {
   render(){
 
     return(
-      <li key={this.props.campaign_id} onClick={this.handleClick} >
-        <div className="collapsible-header grey lighten-3">
+      <li key={this.props.campaign_id}>
+        <div className="collapsible-header grey lighten-3" onClick={this.handleClick}>
           <div className="col s1">
           <ExpandIcon shouldShow={this.state.shouldShow} />
           </div>
