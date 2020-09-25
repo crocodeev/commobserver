@@ -1,14 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DASHBOARD } from '../urls';
+import auth from '../utils/auth';
 
-export default function Landing () {
+//Change inputs color
+
+export default function Landing (props) {
+
+
+  function toDashboard(){
+    props.history.push("/dashboard");
+  }
 
   return (
-    <div className="container">
-      <h1>Landing</h1>
-      <p><Link to="/dashboard">View Dashboard</Link></p>
-      <button>Log In</button>
+    <div className="container grey lighten-3">
+      <div className="valign-wrapper">
+        <div className="row">
+         <h1 className="center-align grey-text text-darken-2">Commercial Observer</h1>
+        </div>
+      </div>
+      <div className="row">
+       <div className="input-field col s6 offset-s3">
+        <input placeholder="Login" id="first_name" type="text" className="validate" />
+       </div>
+      </div>
+      <div className="row">
+       <div className="input-field col s6 offset-s3">
+        <input placeholder="Password" id="password" type="password" className="validate" />
+       </div>
+      </div>
+      <div className="row">
+       <div className="col s2 offset-s9">
+        <button
+         className="btn-large waves-effect waves-light green darken-3"
+         type="submit"
+         name="action"
+         onClick={() => {auth.login(toDashboard)}}>Submit</button>
+       </div>
+      </div>
     </div>
   )
 };
