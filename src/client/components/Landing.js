@@ -38,6 +38,8 @@ export default function Landing (props) {
          onClick={() => {auth.login(toDashboard)}}>Submit</button>
        </div>
       </div>
+      <div className="row">
+      </div>
     </div>
   )
 };
