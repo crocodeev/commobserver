@@ -1,5 +1,6 @@
 const express = require('express');
 const os = require('os');
+const bodyParser = require('body-parser');
 
 //routes
 const authRoute = require('./routes/auth');
@@ -13,12 +14,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(cors({
+/*app.use(cors({
   origin: "http://localhost:3000",
   credentials: true
 }));
 
-app.use
+app.use*/
 
 //---------------------routes------------------------
 app.use('/api/auth', authRoute);

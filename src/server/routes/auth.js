@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
     const isMatch = await bcrypt.compare(password, config.pswd);
 
     if(!isMatch){
-      return res.status(400).json({ message: "Неверный пароль, попробуйте снова" };
+      return res.status(400).json({ message: "Неверный пароль, попробуйте снова" });
     }
 
     const token = jwt.sign(
