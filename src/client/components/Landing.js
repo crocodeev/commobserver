@@ -7,6 +7,9 @@ import auth from '../utils/auth';
 
 export default function Landing (props) {
 
+  function setCredentials(event){
+    auth.[event.target.id] = event.target.value;
+  }
 
   function toDashboard(){
     props.history.push("/dashboard");
@@ -21,12 +24,12 @@ export default function Landing (props) {
       </div>
       <div className="row">
        <div className="input-field col s6 offset-s3">
-        <input placeholder="Login" id="first_name" type="text" className="validate" />
+        <input placeholder="Login" id="user" type="text" className="validate" onChange={(event) => {setCredentials(event)}}/>
        </div>
       </div>
       <div className="row">
        <div className="input-field col s6 offset-s3">
-        <input placeholder="Password" id="password" type="password" className="validate" />
+        <input placeholder="Password" id="password" type="password" className="validate" onChange={(event) => {setCredentials(event)}}/>
        </div>
       </div>
       <div className="row">
