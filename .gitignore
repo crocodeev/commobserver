@@ -3,7 +3,7 @@ node_modules
 dist
 *.log
 yarn.lock
-src/server/config/*.conf.js
+src/server/config/db.conf.js
 src/server/config/cfr.js
 backups
 src/server/config/mediaRequest.js
