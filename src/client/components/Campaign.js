@@ -20,7 +20,13 @@ export default class Campaign extends Component {
 
   handleClick(){
 
-    fetch(`/api/details?id=${this.props.campaign_id}`)
+    fetch(`/api/details?id=${this.props.campaign_id}`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify({ token: localStorage.token})
+    })
       .then(res => res.json())
       .then(data => this.setState(
         {

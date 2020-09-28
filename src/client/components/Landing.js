@@ -16,7 +16,12 @@ export default function Landing (props) {
   }
 
   return (
-    <div className="container grey lighten-3">
+    <div className="container grey lighten-3"
+         onKeyPress={(e) => {
+           if(e.charCode === 13){
+             auth.login(toDashboard);
+           }
+         }}>
       <div className="valign-wrapper">
         <div className="row">
          <h1 className="center-align grey-text text-darken-2">Commercial Observer</h1>

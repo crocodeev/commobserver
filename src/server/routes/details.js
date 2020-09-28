@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
 const queries = require('../config/queries');
+const serverAuth = require('../middlewares/serverAuth');
 
 const mysqlSettings = require('../config/db.config.js');
 const { database } = require('../config/db.config.js');
@@ -14,9 +15,9 @@ const connection = mysql.createConnection({
   database: mysqlSettings.database
 });
 
+router.use(serverAuth);
 
-
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
 
     const campaign_id = req.query.id;
 

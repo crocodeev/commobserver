@@ -13,7 +13,13 @@ export default class Active extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/campaigns')
+    fetch('/api/campaigns',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify({ token: localStorage.token})
+    })
       .then(res => res.json())
       .then(data => filter.getActive(data))
       .then(data => this.setState({ campaigns: data }));

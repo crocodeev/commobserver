@@ -11,17 +11,13 @@ router.post('/', async (req, res) => {
 
     const { username, password } = req.body;
 
-    console.log(username);
-
     const isUser = username === config.user;
 
     if(!isUser){
       return res.status(400).json({message: "Пользователь не найден"});
     }
 
-    console.log(password);
-    //const isMatch = await bcrypt.compare(password, config.pswd);
-    const isMatch = password === config.pswd;
+    const isMatch = await bcrypt.compare(password, config.pswd);
 
     if(!isMatch){
       return res.status(400).json({ message: "Неверный пароль, попробуйте снова" });
@@ -37,7 +33,7 @@ router.post('/', async (req, res) => {
 
 
   } catch (e) {
-    console.log(e);
+  
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова.'})
   }
 

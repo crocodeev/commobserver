@@ -13,6 +13,7 @@ class Auth {
       password: this.password
     }
 
+
     fetch('api/auth', {
       method: 'POST',
       headers: {
@@ -21,9 +22,13 @@ class Auth {
       body: JSON.stringify(payload)
     })
     .then(res => res.json())
-    .then(data => console.log(data));
-    //this.authenticated = true;
-    //callback()
+    .then(data => {
+      
+      this.authenticated = true;
+      localStorage.setItem('token', data.token);
+      callback();
+    })
+    .catch(err => console.log(err));
   }
 
   logout(callback) {

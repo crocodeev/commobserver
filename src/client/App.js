@@ -21,9 +21,6 @@ export default class App extends Component {
 
   }
 
-  handleLogin(){
-    console.log(this);
-  }
 
   render() {
     return (
