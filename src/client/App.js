@@ -17,8 +17,6 @@ export default class App extends Component {
       isLogin: false,
     }
 
-    this.handleLogin = this.handleLogin.bind(this);
-
   }
 
 

@@ -23,10 +23,14 @@ class Auth {
     })
     .then(res => res.json())
     .then(data => {
-      
-      this.authenticated = true;
-      localStorage.setItem('token', data.token);
-      callback();
+      if(data.success){
+        this.authenticated = true;
+        localStorage.setItem('token', data.token);
+        callback();
+      }else{
+        alert(data.message);
+      }
+
     })
     .catch(err => console.log(err));
   }
