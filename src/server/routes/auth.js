@@ -14,13 +14,17 @@ router.post('/', async (req, res) => {
     const isUser = username === config.user;
 
     if(!isUser){
-      return res.status(400).json({message: "Пользователь не найден"});
+      return res.status(400).json({
+        success: false,
+        message: "Пользователь не найден"});
     }
 
     const isMatch = await bcrypt.compare(password, config.pswd);
 
     if(!isMatch){
-      return res.status(400).json({ message: "Неверный пароль, попробуйте снова" });
+      return res.status(400).json({
+        success: false,
+        message: "Неверный пароль, попробуйте снова" });
     }
 
     const token = jwt.sign(
@@ -29,11 +33,14 @@ router.post('/', async (req, res) => {
       { expiresIn: '1h'});
 
 
-    res.json({ token, userId: config.userId });
+    res.json({ token,
+               userId: config.userId,
+               success: true,
+               });
 
 
   } catch (e) {
-  
+
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова.'})
   }
 

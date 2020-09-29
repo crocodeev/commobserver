@@ -17,12 +17,13 @@ export default class App extends Component {
       isLogin: false,
     }
 
-    this.handleLogin = this.handleLogin.bind(this);
-
   }
 
 
   render() {
+
+    console.log(this);
+
     return (
       <div>
         <Route exact path='/' component={Landing}/>
