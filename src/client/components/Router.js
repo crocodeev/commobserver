@@ -10,6 +10,8 @@ import auth from "../utils/auth.js"
 
 
 export default function Router () {
+  console.log(auth.authenticated);
+
     return(
             <div>
             {

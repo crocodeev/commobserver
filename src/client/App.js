@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import ReactDOM from "react-dom";
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -8,21 +8,17 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
 
+import auth from './utils/auth.js';
+
 export default class App extends Component {
 
   constructor(){
     super();
-
-    this.state = {
-      isLogin: false,
-    }
-
   }
 
 
   render() {
 
-    console.log(this);
 
     return (
       <div>
