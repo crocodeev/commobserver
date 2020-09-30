@@ -1,9 +1,7 @@
 module.exports = {
-    mysql: {
       host: '',
       user: '',
       password: '',
       database: '',
       project_id: ''
-    }
   }
