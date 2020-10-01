@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DASHBOARD } from '../urls';
+import { LANDING_NAME } from '../config/names';
 import auth from '../utils/auth';
-
 //Change inputs color
 
 export default function Landing (props) {
@@ -24,7 +24,7 @@ export default function Landing (props) {
          }}>
       <div className="valign-wrapper">
         <div className="row">
-         <h1 className="center-align grey-text text-darken-2">Commercial Observer</h1>
+         <h1 className="center-align grey-text text-darken-2">{LANDING_NAME}</h1>
         </div>
       </div>
       <div className="row">

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Campaign from './Campaign';
+import HeaderExpandIcon from './HeaderExpandIcon';
+import { IconVerticalAlign, Bold } from '../style/styles';
 
 import filter from '../utils/filter';
 import isCommercial from '../utils/isCommercial';
@@ -29,10 +31,31 @@ export default class Future extends Component {
 
     const campaigns = this.state.campaigns;
 
+    console.log(campaigns);
+
     return (
       <div className="container">
         <div className="row">
         <ul className="collapsible">
+
+        <li className="collection-header collapsible-header">
+        <div className="col s1" style={IconVerticalAlign}>
+        <HeaderExpandIcon />
+        </div>
+        <div className="col s5 valign-wrapper">
+        <h6 style={Bold}>Campaign Name</h6>
+        </div>
+        <div className="col s2 valign-wrapper">
+        <h6 style={Bold}>Frequency rotation</h6>
+        </div>
+        <div className="col s2 valign-wrapper">
+        <h6 style={Bold}>Start date</h6>
+        </div>
+        <div className="col s2 valign-wrapper">
+        <h6 style={Bold}>Stop date</h6>
+        </div>
+        </li>
+        
         { campaigns  ? campaigns.map(campaign => {
 
           if(isCommercial(campaign.block_time)){

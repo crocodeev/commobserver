@@ -50,7 +50,7 @@ export default class Campaign extends Component {
           <div className="col s1">
           <ExpandIcon shouldShow={this.state.shouldShow} />
           </div>
-          <div className="col s6">
+          <div className="col s5">
           {this.props.name}
           </div>
           <div className="col s2">{this.props.block_size + "/" + this.props.block_time + " min"}</div>
