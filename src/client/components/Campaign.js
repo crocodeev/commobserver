@@ -44,6 +44,8 @@ export default class Campaign extends Component {
 
   render(){
 
+    const block_period = this.props.block_period ? " hour" : " min";
+
     return(
       <li key={this.props.campaign_id}>
         <div className="collapsible-header grey lighten-3" onClick={this.handleClick}>
@@ -53,7 +55,7 @@ export default class Campaign extends Component {
           <div className="col s5">
           {this.props.name}
           </div>
-          <div className="col s2">{this.props.block_size + "/" + this.props.block_time + " min"}</div>
+          <div className="col s2">{this.props.block_size + "/" + this.props.block_time + block_period}</div>
           <div className="col s2">{this.props.from_date.slice(0,10)}</div>
           <div className="col s2">{this.props.to_date.slice(0,10)}</div>
         </div>

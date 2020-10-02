@@ -31,6 +31,7 @@ export default class Active extends Component {
 
     const campaigns = this.state.campaigns;
 
+
     return (
       <div className="container">
         <div className="row">
@@ -44,7 +45,7 @@ export default class Active extends Component {
         <h6 style={Bold}>Campaign Name</h6>
         </div>
         <div className="col s2 valign-wrapper">
-        <h6 style={Bold}>Frequency rotation</h6>
+        <h6 style={Bold}>Rotation frequency</h6>
         </div>
         <div className="col s2 valign-wrapper">
         <h6 style={Bold}>Start date</h6>
@@ -63,6 +64,7 @@ export default class Active extends Component {
                  campaign_id={campaign.campaign_id}
                  block_size={campaign.block_size}
                  block_time={campaign.block_time}
+                 block_period={campaign.block_period}
                  from_date={campaign.from_date}
                  to_date={campaign.to_date}/>
               );
@@ -74,13 +76,3 @@ export default class Active extends Component {
     );
   }
 }
-
-/*
-<Campaign key={campaign.campaign_id}
- name={campaign.name}
- campaign_id={campaign.campaign_id}
- block_size={campaign.block_size}
- block_time={campaign.block_time}
- from_date={campaign.from_date}
- to_date={campaign.to_date}/>
-*/

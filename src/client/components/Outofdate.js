@@ -44,7 +44,7 @@ export default class Outofdate extends Component {
         <h6 style={Bold}>Campaign Name</h6>
         </div>
         <div className="col s2 valign-wrapper">
-        <h6 style={Bold}>Frequency rotation</h6>
+        <h6 style={Bold}>Rotation frequency</h6>
         </div>
         <div className="col s2 valign-wrapper">
         <h6 style={Bold}>Start date</h6>
@@ -53,7 +53,7 @@ export default class Outofdate extends Component {
         <h6 style={Bold}>Stop date</h6>
         </div>
         </li>
-        
+
         { campaigns  ? campaigns.map(campaign => {
 
           if(isCommercial(campaign.block_time)){
@@ -63,6 +63,7 @@ export default class Outofdate extends Component {
                campaign_id={campaign.campaign_id}
                block_size={campaign.block_size}
                block_time={campaign.block_time}
+               block_period={campaign.block_period}
                from_date={campaign.from_date}
                to_date={campaign.to_date}/>
             );

@@ -10,7 +10,8 @@ const connection = mysql.createConnection({
   host: mysqlSettings.host,
   user: mysqlSettings.user,
   password: mysqlSettings.password,
-  database: mysqlSettings.database
+  database: mysqlSettings.database,
+  dateStrings:true
 });
 
 router.use(serverAuth);
