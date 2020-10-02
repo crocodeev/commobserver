@@ -1,6 +1,7 @@
 const express = require('express');
 const os = require('os');
 const bodyParser = require('body-parser');
+const config = require('./config/cfr');
 
 //routes
 const authRoute = require('./routes/auth');
@@ -8,6 +9,7 @@ const campaignsRoute = require('./routes/campaigns');
 const detailsRoute = require('./routes/details');
 
 const app = express();
+const PORT = config.port;
 
 //---------------------middlewares-------------------
 
@@ -28,4 +30,4 @@ app.use('/api/details', detailsRoute);
 app.use(express.static('dist'));
 
 
-app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
+app.listen( PORT || 8080, () => console.log(`Listening on port ${ PORT || 8080}!`));
